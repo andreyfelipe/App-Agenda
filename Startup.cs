@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using App_Agenda.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace App_Agenda
 {
@@ -31,6 +33,9 @@ namespace App_Agenda
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<AgendaContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefautConnection")
+            ));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
