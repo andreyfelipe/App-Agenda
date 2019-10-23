@@ -62,7 +62,7 @@ namespace App_Agenda
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Contatos}/{action=Index}/{id?}");
             });
         }
     }
